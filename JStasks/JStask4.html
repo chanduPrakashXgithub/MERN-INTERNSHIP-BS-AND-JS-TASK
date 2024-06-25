@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Date and Time</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    width: 30rem;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+button {
+    width: 100px;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button onclick="showDate()">show date</button>
+        <p id="dateDisplay"></p>
+        
+        <button onclick="showTime()">show Time</button>
+        <p id="timeDisplay"></p>
+    </div>
+    <script >
+        function showDate() {
+    const date = new Date();
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = date.getDate() + '/' + date.toLocaleString('default', { month: 'long' }) + '/' + date.getFullYear();
+    document.getElementById('dateDisplay').textContent = formattedDate;
+}
+
+function showTime() {
+    const time = new Date();
+    document.getElementById('timeDisplay').textContent = time.toString();
+}
+
+    </script>
+</body>
+</html>
